@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Algorithms</title>
+</head>
+<body>
+    <script>
+        var word='Pneumonoultramicroscopicsilicovolcanoconiosis'
+        var alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+        function sort(arr){
+                for(let i=0;i<(arr.length-1);i++){
+                    var lett1=arr[i].toLowerCase();
+                    var lett2=arr[i+1].toLowerCase();
+                    if(alphabet.indexOf(lett1)>alphabet.indexOf(lett2)){
+                        arr.splice(i,1)
+                        arr.splice(i+1,0,lett1)
+                    }
+                }
+                return(arr);
+            }
+            function check(arr){
+                var checkBoo = true;
+                for(let i=0;i<(arr.length-1);i++){
+                    var lett1=arr[i].toLowerCase();
+                    var lett2=arr[i+1].toLowerCase();
+                    if(alphabet.indexOf(lett1)>alphabet.indexOf(lett2)){
+                        checkBoo=false;
+                    }
+                }
+                return(checkBoo);       
+            }
+        function bubble(toSort){
+            var arrSort = toSort.split('');
+            do{
+                var arrSorted=(sort(arrSort));
+                arrSort=arrSorted;
+                
+            }while(check(arrSort)==false);
+            return(arrSort);
+        }
+        console.log(bubble(word))
+
+        function insertion(toSort){
+            var arrI = toSort.split('');
+            var arrF = [];
+            for(var i=0; i<arrI.length; i++){
+                var currentI = arrI[i].toLowerCase();
+                if(arrF.length==0){
+                    arrF.unshift(currentI);
+                }
+                else{
+                    for(var a=0;a<arrF.length; a++){
+                        var currentA = arrF[a];
+                        if(arrF.length>1&&a==arrF.length-1){
+                            arrF.push(currentI);
+                            break;
+                        }
+                        else if(alphabet.indexOf(currentI)<=alphabet.indexOf(currentA)){
+                            arrF.splice(a, 0, currentI);
+                            break;
+                        }
+                        else{
+                            continue;
+                        }
+                    }
+                }
+            }
+            return(arrF);
+        }
+        console.log(insertion(word));
+
+        // function splitArr(arr){
+        //     var input = arr;
+        //     var arr1 = [];
+        //     var arr2 = [];
+        //     var num = Math.round(input.length/2);
+        //     for(let i=0;i<num;i++){
+        //         arr1.push(input[i]);
+        //     }
+        //     for(let i=num;i<input.length;i++){
+        //         arr2.push(input[i]);
+        //     }
+        //     return[arr1, arr2];
+        // }
+        // function fullSplit(arrIn){
+        //     var input = arrIn;
+        //     var arr = 
+        // }
+        // function check(arr){
+
+        // }
+        // function merge(toSort){
+        //     var oriArray = toSort.split('');
+        //     var halfArr = splitArr(oriArr);
+        // }
+        // console.log(merge('aabbb'));
+    </script>
+</body>
+</html>
